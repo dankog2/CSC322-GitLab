@@ -1,2 +1,2 @@
 #include <stdio.h>
-int main(){ puts("Hello Crool World!"); return 0; }
+int main(){ puts("Hello Happy World!"); return 0; }
