@@ -1,0 +1,61 @@
+mkdir GitLab
+cd GitLab
+@'
+#include <stdio.h>
+int main(void){
+    printf("Hello, world!\n");
+    return 0;
+}
+'@ | Set-Content HelloWorld.c
+git init -b main
+git add HelloWorld.c
+git commit -m "Initial Hello World"
+git remote add origin https://github.com/dankog2/CSC-322-Lab-Task-6.git
+git push -u origin main
+git checkout -b Happy
+@'
+#include <stdio.h>
+int main(void){
+    printf("Hello Happy World!\n");
+    return 0;
+}
+'@ | Set-Content HelloWorld.c
+git add HelloWorld.c
+git commit -m "Say: Hello Happy World!"
+git push -u origin Happy
+git checkout main
+@'
+#include <stdio.h>
+int main(void){
+    printf("Hello Very Crool World!\n");
+    return 0;
+}
+'@ | Set-Content HelloWorld.c
+git add HelloWorld.c
+git commit -m "Say: Hello Very Crool World!"
+git push
+git merge Happy --no-edit
+@'
+#include <stdio.h>
+int main(void){
+    printf("Hello Very Happy World!\n");
+    return 0;
+}
+'@ | Set-Content HelloWorld.c
+git add HelloWorld.c
+git commit -m "Merge Happy into main: Hello Very Happy World!"
+git push
+@'
+#include <stdio.h>
+int main(void){
+    printf("Hello Crazy World!\n");
+    return 0;
+}
+'@ | Set-Content HelloWorld.c
+git add HelloWorld.c
+git commit -m "Say: Hello Crazy World!"
+git push
+git log --all --graph --decorate --oneline > GitLog.txt
+git add GittingAlong.txt GitLog.txt GitLog.png
+git commit -m "Add GittingAlong, GitLog.txt, GitLog.png"
+git push
